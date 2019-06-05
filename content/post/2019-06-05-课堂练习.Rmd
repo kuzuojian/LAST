@@ -30,7 +30,170 @@ library(ggplot2)
 g + geom_jitter(position=position_jitter(0.2)) + 
   stat_summary(fun.data="mean_sdl",  fun.args = list(mult=1), 
                geom="pointrange", color = "red")
-g + geom_violin(trim = FALSE) +geom_jitter(with=0.2,aes(group=supp)))
+
 ```
 stack叠加
 fun.data="mean_sdl"计算中间值
+dose计量，不同的计量有不同的颜色
+factor分类，在灵魂里穿衣服
+color  或者factor在身体上穿衣服
+geom point(color="red")实际显示的内容
+颜色会覆盖，ggplot(data,aes(x,y,color,fill))
+对数据求标准差，fun,是function,fun.data="mean_sdl"
+position=position_jitter(0.2)位置的偏移
+
+
+```{r}
+library(ggplot2)
+ggplot(diamonds, aes(cut, color)) +
+  geom_jitter(aes(color = cut), size = 0.5)
+```
+```{r}
+library(ggplot2)
+df <- ToothGrowth
+df$dose <- as.factor(df$dose)
+head(df)
+data_summary <- function(data, varname, grps){
+  require(plyr)
+  summary_func <- function(x, col){
+    c(mean = mean(x[[col]], na.rm=TRUE),
+      sd = sd(x[[col]], na.rm=TRUE))
+  }
+  data_sum<-ddply(data, grps, .fun=summary_func, varname)
+  data_sum <- rename(data_sum, c("mean" = varname))
+ return(data_sum)
+}
+df2 <- data_summary(df, varname="len", grps= "dose")
+# Convert dose to a factor variable
+df2$dose=as.factor(df2$dose)
+head(df2)
+f <- ggplot(df2, aes(x = dose, y = len, 
+                     ymin = len-sd, ymax = len+sd))
+f+geom_crossbar()
+f+geom_crossbar(aes(color=dose))
+f+geom_crossbar(aes(color=dose))+
+  scale_color_manual(values = c("#999999", "#E69F00", "#56B4E9"))+theme_classic()
+f <- ggplot(df, aes(x=dose, y=len, color=supp))
+f+stat_summary(fun.data = mean_sdl, fun.args = list(mult=1), geom="crossbar", width=0.6, position = position_dodge(0.8))
+```
+
+as  factor再次确认一次
+数字变成factor不可以加减，而是分类不再是0.5+0.5=1，而是二因为是两种分类
+要编一个函数
+gata_summary对象名,function 是运作,
+data_summary <- function(data, varname, grps){
+  require(plyr)
+  ddply(data, grps, .fun=summary_func, varname)是循环
+  ymin就是标准差
+f+geom_crossbar()空心树，这只是展示方式
+scale自定义
+
+透明的scalebrewer颜色的排序，红橙黄绿，gradient渐变
+
+scaler颜色的梯度
+scale fill实心颜色
+linetype  cont线性
+
+
+
+
+errorbar标准差
+
+```{r}
+library(ggplot2)
+library(maps)
+head(USArrests)
+crimes <- data.frame(state=tolower(rownames(USArrests)), USArrests)
+head(crimes)
+library(reshape2)
+crimesm <- melt(crimes, id=1)
+head(crimesm)
+map_data <- map_data("state")
+#绘制地图，使用Murder进行着色
+ggplot(crimes, aes(map_id=state))+
+  geom_map(aes(fill=Murder), map=map_data)+
+  expand_limits(x=map_data$long, y=map_data$lat)
+```
+
+
+reshape2数据转换，melt多页变两页
+
+
+
+```{r}
+library(ggplot2)
+df <- data.frame(dose=c("D0.5", "D1", "D2"),
+                len=c(4.2, 10, 29.5))
+head(df)
+df <- data.frame(supp=rep(c("VC", "OJ"), each=3),
+                dose=rep(c("D0.5", "D1", "D2"),2),
+                len=c(6.8, 15, 33, 4.2, 10, 29.5))
+head(df)
+f <- ggplot(df, aes(x = dose, y = len))
+f + geom_bar(stat = "identity")
+f + geom_bar(stat="identity",fill="steelblue")+geom_text(aes(label=len),vjust=-4, hjust=-8,size=3.5)+theme_minimal()
+f + geom_bar(aes(color = dose),
+             stat="identity", fill="white")
+f + geom_bar(aes(fill = dose), stat="identity")
+```
+vjust垂直调整，负的是向上
+hjust负是向右
+
+
+
+
+
+```{r}
+library(ggplot2)
+df <- data.frame(supp=rep(c("VC", "OJ"), each=3),
+                dose=rep(c("D0.5", "D1", "D2"),2),
+                len=c(6.8, 15, 33, 4.2, 10, 29.5))
+head(df)
+ggplot(df, aes(x=dose, y=len, group=supp)) +
+  geom_line(aes(linetype=supp))+
+  geom_point()
+
+
+ggplot(df, aes(x=dose, y=len, group=supp)) +geom_line(aes(linetype=supp, color = supp))+geom_point(aes(shape=supp, color = supp))
+```
+geom_point(color="red ")
+
+geom_point(aes(shape=supp, color = supp))可以因子分类统计
+
+
+```{r}
+library(ggplot2)
+ToothGrowth$dose <- as.factor(ToothGrowth$dose)
+head(ToothGrowth)
+e <- ggplot(data = ToothGrowth, aes(x=dose, y=len))
+e + geom_jitter(position=position_jitter(0.2))
+
+e + geom_jitter(position=position_jitter(0.2)) + 
+  geom_dotplot(binaxis = "y", stackdir = "center") 
+
+ToothGrowth$dose <- as.factor(ToothGrowth$dose)
+head(ToothGrowth)
+f <-ggplot(data = ToothGrowth, aes(x=dose, y=len))
+f + geom_jitter(position=position_jitter(0.2)) + stat_summary(fun.data="mean_sdl",  fun.args =list(mult=1),geom="pointrange", color = "red")
+
+f + geom_dotplot(binaxis = "y", stackdir = "center") 
+```
+rep重复三次
+```{r}
+library(ggplot2)
+df <- data.frame(supp=rep(c("VC", "OJ"), each=3),
+                dose=rep(c("D0.5", "D1", "D2"),2),
+                len=c(6.8, 15, 33, 4.2, 10, 29.5))
+head(df)
+ggplot(df, aes(x=dose, y=len, group=supp)) +
+  geom_line(aes(linetype=supp))+
+  geom_point()
+```
+huozhe
+```{r}
+library(ggplot2)
+f <-ggplot(df, aes(x=dose, y=len, group=supp))
+f+geom_line(aes(linetype=supp))
+f+ geom_point()
+```
+linetype=supp给线分类

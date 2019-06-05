@@ -2,7 +2,7 @@
 title: ggplot2画图，看看能不能成功叭(　o=^•ェ•)o　┏━┓
 author: fan
 date: '2019-05-29'
-slug:ggplot2画图，看看能不能成功叭(　o=^•ェ•)o　┏━┓
+slug: ggplot2画图，看看能不能成功叭(　o=^•ェ•)o　┏━┓
 categories:
   - R
 tags:
