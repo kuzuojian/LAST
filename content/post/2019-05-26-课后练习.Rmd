@@ -1,0 +1,27 @@
+---
+title: 课后练习——跟紧老师的步伐，拿出小本本记下来
+author: 范范
+date: '2019-05-26'
+slug: 课后练习——跟紧老师的步伐，拿出小本本记下来
+categories:
+  - R
+tags:
+  - R Markdown
+---
+```{r, mychunk, cache=TRUE, eval=FALSE, dpi=100}
+set.seed(1234)
+wdata <- data.frame(sex=factor(rep(c("F", "M"), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)
+```
+```{r, fig.path="abc"}
+set.seed(1234)
+wdata <- data.frame(sex=factor(rep(c("F", "M"), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)   
+```
+```{r，2a}
+set.seed(1234)
+wdata <- data.frame(sex=factor(rep(c("F", "M"), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)
+```
+
+

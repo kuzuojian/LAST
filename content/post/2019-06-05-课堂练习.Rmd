@@ -1,0 +1,36 @@
+---
+title: 课堂练习
+author: 范琴
+date: '2019-06-05'
+slug: 课堂练习
+categories:
+  - R
+tags:
+  - R Markdown
+---
+```{r}
+library(ggplot2)
+ToothGrowth
+head(ToothGrowth)
+```
+这是芽的生长
+```{r}
+library(ggplot2)
+ToothGrowth
+head(ToothGrowth)
+g <-ggplot(ToothGrowth,aes(x=dose,y=len))
+g
+g +geom_boxplot(aes(color=dose))
+
+```
+color是边际改变，fill是里面的改变即填充
+fill=supp根据供应商分类
+```{r}
+library(ggplot2)
+g + geom_jitter(position=position_jitter(0.2)) + 
+  stat_summary(fun.data="mean_sdl",  fun.args = list(mult=1), 
+               geom="pointrange", color = "red")
+g + geom_violin(trim = FALSE) +geom_jitter(with=0.2,aes(group=supp)))
+```
+stack叠加
+fun.data="mean_sdl"计算中间值

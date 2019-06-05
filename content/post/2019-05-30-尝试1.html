@@ -1,0 +1,28 @@
+---
+title: ggplot2尝试——直线、折线好多线
+author: 范琴
+date: '2019-05-30'
+slug: ggplot2尝试——直线、折线好多线
+categories:
+  - R
+tags:
+  - R Markdown
+---
+
+
+
+<pre class="r"><code>library(ggplot2)
+df &lt;- data.frame(supp=rep(c(&quot;VC&quot;, &quot;OJ&quot;), each=3),dose=rep(c(&quot;D0.5&quot;, &quot;D1&quot;, &quot;D2&quot;),2),
+len=c(6.8, 15, 33, 4.2, 10, 29.5))
+head(df)</code></pre>
+<pre><code>##   supp dose  len
+## 1   VC D0.5  6.8
+## 2   VC   D1 15.0
+## 3   VC   D2 33.0
+## 4   OJ D0.5  4.2
+## 5   OJ   D1 10.0
+## 6   OJ   D2 29.5</code></pre>
+<pre class="r"><code>ggplot(df, aes(x=dose,y=len,group=supp))+geom_line(aes(linetype=supp))+geom_point()</code></pre>
+<p><img src="/post/2019-05-30-尝试1_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(df, aes(x=dose, y=len, group=supp)) +geom_line(aes(linetype=supp, color = supp))+geom_point(aes(shape=supp, color = supp))</code></pre>
+<p><img src="/post/2019-05-30-尝试1_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>

@@ -1,0 +1,103 @@
+---
+title: 课堂练习——渣渣修炼
+author: 范范
+date: '2019-06-04'
+slug: 课堂练习-渣渣修炼
+categories:
+  - R
+tags:
+  - R Markdown
+---
+
+
+
+**今天我们来玩个考验观察力的游戏——找不同，来试试看吧！**
+
+
+没有强调色了呦✈
+```{r,reval=c(1, 3, 4),highlight=FALSE}
+set.seed(1234)
+wdata <- data.frame(sex=factor(rep(c("F", "M"), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)
+```
+你看不见了吧👀
+```{r,echo=FALSE}
+set.seed(1234)
+wdata <- data.frame(sex=factor(rep(c("F", "M"), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)
+```
+是不是发现第一行没有了呢，啦啦啦啦啦🙃
+```{r,echo=2:3,background='red'}
+set.seed(1234)
+wdata <- data.frame(sex=factor(rep(c("F", "M"), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)
+```
+框框也没有了鸭，是不是感觉这样也挺好看的(●ˇ∀ˇ●)
+```{r,highlight=FALSE}
+set.seed(1234)
+wdata <- data.frame(sex=factor(rep(c("F", "M"), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)
+```
+
+
+
+
+
+```{r,fig.align='right'}
+set.seed(1234)
+wdata <- data.frame(sex=factor(rep(c("F", "M"), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)
+```
+```{r,strip.white=FALSE}
+set.seed(1234)
+wdata <- data.frame(sex=factor(rep(c("F", "M"), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)
+```
+
+```{r,render (knitr::knit_print; function(x, options, ...))}
+set.seed(1234)
+wdata <- data.frame(sex=factor(rep(c("F", "M"), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)
+```
+```{r,tidy=FALSE}
+set.seed(1234)
+wdata <- data.frame(sex=factor(rep(c("F", "M"), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)
+```
+```{r,tidy.opts= list(blank = FALSE, width.cutoff = 60)}
+set.seed(1234)
+wdata <- data.frame(sex=factor(rep(c("F", "M"), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)
+```
+```{r,prompt=TRUE}
+set.seed(1234)
+wdata <- data.frame(sex=factor(rep(c("F", "M"), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)
+```
+```{r,prompt=FALSE}
+set.seed(1234)
+wdata <- data.frame(sex=factor(rep(c("F", "M"), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)
+```
+```{r,comment=NA}
+set.seed(1234)
+wdata <- data.frame(sex=factor(rep(c("F", "M"), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)
+```
+```{r,highlight=FALSE}
+set.seed(1234)
+wdata <- data.frame(sex=factor(rep(c("F", "M"), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)
+```
+```{r,size='normalsize'}
+set.seed(1234)
+wdata <- data.frame(sex=factor(rep(c("F", "M"), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)
+```
+```{r,background="#999999"}
+set.seed(1234)
+wdata <- data.frame(sex=factor(rep(c("F", "M"), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)
+```
+
+

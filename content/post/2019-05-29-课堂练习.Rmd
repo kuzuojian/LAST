@@ -1,0 +1,18 @@
+---
+title: 课堂练习——跟老师画第一个图啦
+author: 范琴
+date: '2019-05-29'
+slug: 课堂练习——跟老师画第一个图啦
+categories:
+  - R
+tags:
+  - R Markdown
+---
+h <-160:180
+h
+w <-50:70
+w
+plot(h,w)
+install.packages("lattice")
+library("lattice")
+xyplot(h,w)

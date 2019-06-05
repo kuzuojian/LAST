@@ -1,0 +1,164 @@
+---
+title: 课堂练习——渣渣修炼
+author: 范范
+date: '2019-06-04'
+slug: 课堂练习-渣渣修炼
+categories:
+  - R
+tags:
+  - R Markdown
+---
+
+
+
+<p><strong>今天我们来玩个考验观察力的游戏——找不同，来试试看吧！</strong></p>
+<p>没有强调色了呦✈</p>
+<pre class="text"><code>set.seed(1234)
+wdata &lt;- data.frame(sex=factor(rep(c(&quot;F&quot;, &quot;M&quot;), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)</code></pre>
+<pre><code>##   sex   weight
+## 1   F 53.79293
+## 2   F 55.27743
+## 3   F 56.08444
+## 4   F 52.65430
+## 5   F 55.42912
+## 6   F 55.50606</code></pre>
+<p>你看不见了吧👀</p>
+<pre><code>##   sex   weight
+## 1   F 53.79293
+## 2   F 55.27743
+## 3   F 56.08444
+## 4   F 52.65430
+## 5   F 55.42912
+## 6   F 55.50606</code></pre>
+<p>是不是发现第一行没有了呢，啦啦啦啦啦🙃</p>
+<pre class="r"><code>wdata &lt;- data.frame(sex=factor(rep(c(&quot;F&quot;, &quot;M&quot;), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)</code></pre>
+<pre><code>##   sex   weight
+## 1   F 53.79293
+## 2   F 55.27743
+## 3   F 56.08444
+## 4   F 52.65430
+## 5   F 55.42912
+## 6   F 55.50606</code></pre>
+<p>框框也没有了鸭，是不是感觉这样也挺好看的(●ˇ∀ˇ●)</p>
+<pre class="text"><code>set.seed(1234)
+wdata &lt;- data.frame(sex=factor(rep(c(&quot;F&quot;, &quot;M&quot;), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)</code></pre>
+<pre><code>##   sex   weight
+## 1   F 53.79293
+## 2   F 55.27743
+## 3   F 56.08444
+## 4   F 52.65430
+## 5   F 55.42912
+## 6   F 55.50606</code></pre>
+<pre class="r"><code>set.seed(1234)
+wdata &lt;- data.frame(sex=factor(rep(c(&quot;F&quot;, &quot;M&quot;), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)</code></pre>
+<pre><code>##   sex   weight
+## 1   F 53.79293
+## 2   F 55.27743
+## 3   F 56.08444
+## 4   F 52.65430
+## 5   F 55.42912
+## 6   F 55.50606</code></pre>
+<pre class="r"><code>set.seed(1234)
+wdata &lt;- data.frame(sex=factor(rep(c(&quot;F&quot;, &quot;M&quot;), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)</code></pre>
+<pre><code>##   sex   weight
+## 1   F 53.79293
+## 2   F 55.27743
+## 3   F 56.08444
+## 4   F 52.65430
+## 5   F 55.42912
+## 6   F 55.50606</code></pre>
+<pre class="r"><code>set.seed(1234)
+wdata &lt;- data.frame(sex=factor(rep(c(&quot;F&quot;, &quot;M&quot;), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)</code></pre>
+<pre><code>##   sex   weight
+## 1   F 53.79293
+## 2   F 55.27743
+## 3   F 56.08444
+## 4   F 52.65430
+## 5   F 55.42912
+## 6   F 55.50606</code></pre>
+<pre class="r"><code>set.seed(1234)
+wdata &lt;- data.frame(sex=factor(rep(c(&quot;F&quot;, &quot;M&quot;), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)</code></pre>
+<pre><code>##   sex   weight
+## 1   F 53.79293
+## 2   F 55.27743
+## 3   F 56.08444
+## 4   F 52.65430
+## 5   F 55.42912
+## 6   F 55.50606</code></pre>
+<pre class="r"><code>set.seed(1234)
+wdata &lt;- data.frame(sex=factor(rep(c(&quot;F&quot;, &quot;M&quot;), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)</code></pre>
+<pre><code>##   sex   weight
+## 1   F 53.79293
+## 2   F 55.27743
+## 3   F 56.08444
+## 4   F 52.65430
+## 5   F 55.42912
+## 6   F 55.50606</code></pre>
+<pre class="r"><code>&gt; set.seed(1234)
+&gt; wdata &lt;- data.frame(sex=factor(rep(c(&quot;F&quot;, &quot;M&quot;), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+&gt; head(wdata)</code></pre>
+<pre><code>##   sex   weight
+## 1   F 53.79293
+## 2   F 55.27743
+## 3   F 56.08444
+## 4   F 52.65430
+## 5   F 55.42912
+## 6   F 55.50606</code></pre>
+<pre class="r"><code>set.seed(1234)
+wdata &lt;- data.frame(sex=factor(rep(c(&quot;F&quot;, &quot;M&quot;), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)</code></pre>
+<pre><code>##   sex   weight
+## 1   F 53.79293
+## 2   F 55.27743
+## 3   F 56.08444
+## 4   F 52.65430
+## 5   F 55.42912
+## 6   F 55.50606</code></pre>
+<pre class="r"><code>set.seed(1234)
+wdata &lt;- data.frame(sex=factor(rep(c(&quot;F&quot;, &quot;M&quot;), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)</code></pre>
+<pre><code>  sex   weight
+1   F 53.79293
+2   F 55.27743
+3   F 56.08444
+4   F 52.65430
+5   F 55.42912
+6   F 55.50606</code></pre>
+<pre class="text"><code>set.seed(1234)
+wdata &lt;- data.frame(sex=factor(rep(c(&quot;F&quot;, &quot;M&quot;), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)</code></pre>
+<pre><code>##   sex   weight
+## 1   F 53.79293
+## 2   F 55.27743
+## 3   F 56.08444
+## 4   F 52.65430
+## 5   F 55.42912
+## 6   F 55.50606</code></pre>
+<pre class="r"><code>set.seed(1234)
+wdata &lt;- data.frame(sex=factor(rep(c(&quot;F&quot;, &quot;M&quot;), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)</code></pre>
+<pre><code>##   sex   weight
+## 1   F 53.79293
+## 2   F 55.27743
+## 3   F 56.08444
+## 4   F 52.65430
+## 5   F 55.42912
+## 6   F 55.50606</code></pre>
+<pre class="r"><code>set.seed(1234)
+wdata &lt;- data.frame(sex=factor(rep(c(&quot;F&quot;, &quot;M&quot;), each=200)),weight=c(rnorm(200, 55), rnorm(200, 58)))
+head(wdata)</code></pre>
+<pre><code>##   sex   weight
+## 1   F 53.79293
+## 2   F 55.27743
+## 3   F 56.08444
+## 4   F 52.65430
+## 5   F 55.42912
+## 6   F 55.50606</code></pre>

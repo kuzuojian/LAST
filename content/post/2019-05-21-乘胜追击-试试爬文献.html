@@ -1,0 +1,261 @@
+---
+title: "乘胜追击，试试爬文献\U0001F4AA"
+author: 范琴
+date: '2019-05-21'
+slug: 乘胜追击-试试爬文献
+categories:
+  - R
+tags:
+  - R Markdown
+---
+
+
+
+<pre class="r"><code>library(rvest)</code></pre>
+<pre><code>## 载入需要的程辑包：xml2</code></pre>
+<pre class="r"><code>library(knitr)
+link &lt;- &#39;https://www.ncbi.nlm.nih.gov/pubmed/?term=disaster&#39;
+web &lt;- read_html(link)
+title &lt;- web %&gt;% html_nodes(&#39;div.rslt p.title a&#39;) %&gt;%html_text()
+author &lt;- web %&gt;% html_nodes(&#39;div.supp p.desc&#39;) %&gt;%html_text()
+journal &lt;- web %&gt;% html_nodes(&#39;div.supp p.details span&#39;) %&gt;%html_text()
+dat &lt;- data.frame(Title = title, Author = author, Journal = journal)
+kable(dat, format=&quot;html&quot;)</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Title
+</th>
+<th style="text-align:left;">
+Author
+</th>
+<th style="text-align:left;">
+Journal
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Negative life events and post-traumatic stress disorder symptoms: a moderated mediation model of only-child status and depressive symptoms.
+</td>
+<td style="text-align:left;">
+Jin Y, Zeng P, An J, Xu J.
+</td>
+<td style="text-align:left;">
+Public Health
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Pediatric electric bicycle injuries and comparison to other pediatric traffic injuries.
+</td>
+<td style="text-align:left;">
+Zmora O, Peleg K, Klein Y.
+</td>
+<td style="text-align:left;">
+Traffic Inj Prev
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Leveraging National Cancer Institute Programmatic Collaboration for Uterine Cervix Cancer Brachytherapy in Puerto Rico After Hurricane Maria.
+</td>
+<td style="text-align:left;">
+Kunos CA, Ivy P.
+</td>
+<td style="text-align:left;">
+Front Oncol
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Larger Amygdala Volume Mediates the Association Between Prenatal Maternal Stress and Higher Levels of Externalizing Behaviors: Sex Specific Effects in Project Ice Storm.
+</td>
+<td style="text-align:left;">
+Jones SL, Dufoix R, Laplante DP, Elgbeili G, Patel R, Chakravarty MM, King S, Pruessner JC.
+</td>
+<td style="text-align:left;">
+Front Hum Neurosci
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Addressing Disease-Related Stigma During Infectious Disease Outbreaks.
+</td>
+<td style="text-align:left;">
+Fischer LS, Mansergh G, Lynch J, Santibanez S.
+</td>
+<td style="text-align:left;">
+Disaster Med Public Health Prep
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Prefabricated Temporary Housing and Eczema or Respiratory Symptoms in Schoolchildren after the Great East Japan Earthquake: The ToMMo Child Health Study.
+</td>
+<td style="text-align:left;">
+Kuniyoshi Y, Kikuya M, Miyashita M, Yamanaka C, Ishikuro M, Obara T, Metoki H, Nakaya N, Nagami F, Tomita H, Hozawa A, Tsuji I, Kure S, Yaegashi N, Kuriyama S.
+</td>
+<td style="text-align:left;">
+Disaster Med Public Health Prep
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Australian private emergency departments can assist ambulance services by taking public emergency patients during surge and disasters.
+</td>
+<td style="text-align:left;">
+Walker K, Stephenson M, Dunlop WA, Cheong EM, Ben-Meir M.
+</td>
+<td style="text-align:left;">
+Emerg Med Australas
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Development and psychometric testing of the Research Competency Scale for Nursing Students: An instrument design study.
+</td>
+<td style="text-align:left;">
+Qiu C, Feng X, Reinhardt JD, Li J.
+</td>
+<td style="text-align:left;">
+Nurse Educ Today
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Assessment of interprofessional collaboration before and after a simulated disaster drill experience.
+</td>
+<td style="text-align:left;">
+Digregorio H, Graber JS, Saylor J, Ness M.
+</td>
+<td style="text-align:left;">
+Nurse Educ Today
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Air Pollution/Irritants, Asthma Control, and Health-Related Quality of Life among 9/11-Exposed Individuals with Asthma.
+</td>
+<td style="text-align:left;">
+Yung J, Osahan S, Friedman SM, Li J, Cone JE.
+</td>
+<td style="text-align:left;">
+Int J Environ Res Public Health
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Remitting seronegative symmetrical synovitis with pitting edema syndrome complicated with primary lung cancer.
+</td>
+<td style="text-align:left;">
+Matsuoka H, Matsubara H, Sugimura A, Uchida T, Ichihara T, Miyauchi Y, Kondo T, Nakajima H.
+</td>
+<td style="text-align:left;">
+Int Cancer Conf J
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A cross-lagged panel analysis of children’s sleep, attention, and mood in a prenatally stressed cohort: The QF2011 Queensland flood study.
+</td>
+<td style="text-align:left;">
+Simcock G, Cobham VE, Laplante DP, Elgbeili G, Gruber R, Kildea S, King S.
+</td>
+<td style="text-align:left;">
+J Affect Disord
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+A clinical study of cutaneous leishmaniasis in a new focus in the Kurdistan region, Iraq.
+</td>
+<td style="text-align:left;">
+Hussein NR, Balatay AA, Saleem ZSM, Hassan SM, Assafi MS, Sheikhan RS, Amedi FR, Hafzullah SS, Hafzullah MS, Xedr AM, Zebary MT, Aqrawi HA.
+</td>
+<td style="text-align:left;">
+PLoS One
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sex Disparities in Receipt of Bystander Interventions for Students Who Experienced Cardiac Arrest in Japan.
+</td>
+<td style="text-align:left;">
+Matsui S, Kitamura T, Kiyohara K, Sado J, Ayusawa M, Nitta M, Iwami T, Nakata K, Kitamura Y, Sobue T; SPIRITS Investigators.
+</td>
+<td style="text-align:left;">
+JAMA Netw Open
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Cytochrome c1 as a favorable prognostic marker in estrogen receptor-positive breast carcinoma.
+</td>
+<td style="text-align:left;">
+Sato A, Takagi K, Miki Y, Yoshimura A, Hara M, Ishida T, Sasano H, Suzuki T.
+</td>
+<td style="text-align:left;">
+Histol Histopathol
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Music Recognition Algorithm based on T-S Cognitive Neural Network.
+</td>
+<td style="text-align:left;">
+Yan F.
+</td>
+<td style="text-align:left;">
+Transl Neurosci
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Strategy for phytomanagement in an area affected by iron ore dam rupture: A study case in Minas Gerais State, Brazil.
+</td>
+<td style="text-align:left;">
+Zago VCP, das Dores NC, Watts BA.
+</td>
+<td style="text-align:left;">
+Environ Pollut
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Trends in the travelers’ demand for pre-travel medical advice at a Spanish International Vaccination Center between 2000 and 2017.
+</td>
+<td style="text-align:left;">
+Segura M, Lopez-Gigosos R, Mariscal-Lopez E, Gutierrez-Bedmar M, Mariscal A.
+</td>
+<td style="text-align:left;">
+PLoS One
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Violence against children and natural disasters: A systematic review and meta-analysis of quantitative evidence.
+</td>
+<td style="text-align:left;">
+Cerna-Turoff I, Fischer HT, Mayhew S, Devries K.
+</td>
+<td style="text-align:left;">
+PLoS One
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hurricane-Associated Mold Exposures Among Patients at Risk for Invasive Mold Infections After Hurricane Harvey - Houston, Texas, 2017.
+</td>
+<td style="text-align:left;">
+Chow NA, Toda M, Pennington AF, Anassi E, Atmar RL, Cox-Ganser JM, Da Silva J, Garcia B, Kontoyiannis DP, Ostrosky-Zeichner L, Leining LM, McCarty J, Al Mohajer M, Murthy BP, Park JH, Schulte J, Shuford JA, Skrobarcek KA, Solomon S, Strysko J, Chiller TM, Jackson BR, Chew GL, Beer KD.
+</td>
+<td style="text-align:left;">
+MMWR Morb Mortal Wkly Rep
+</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>write.table(dat, &#39;disaster_paper.txt&#39;, sep=&quot;&quot;, row.names = F, quote = F)</code></pre>

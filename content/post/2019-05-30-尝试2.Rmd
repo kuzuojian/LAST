@@ -1,0 +1,27 @@
+---
+title: ggplot2尝试——翻滚吧条形图
+author: 范琴
+date: '2019-05-30'
+slug: ggplot2尝试——翻滚吧条形图
+categories:
+  - R
+tags:
+  - R Markdown
+---
+```{r}
+library(ggplot2)
+df <- data.frame(dose=c("D0.5", "D1", "D2"),len=c(4.2, 10, 29.5))
+head(df)
+df2 <- data.frame(supp=rep(c("VC", "OJ"), each=3),dose=rep(c("D0.5", "D1", "D2"),2),len=c(6.8, 15, 33, 4.2, 10, 29.5))
+head(df2)
+f <- ggplot(df, aes(x = dose, y = len))
+f + geom_bar(stat = "identity")
+f + geom_bar(stat="identity", fill="steelblue")+geom_text(aes(label=len), vjust=-0.3, size=3.5)+theme_minimal()
+f + geom_bar(aes(color = dose),stat="identity", fill="white")
+f + geom_bar(aes(fill = dose), stat="identity")
+g <- ggplot(data=df2, aes(x=dose, y=len, fill=supp)) 
+g + geom_bar(stat = "identity")
+g + geom_bar(stat="identity", position=position_dodge())
+ggplot(diamonds, aes(cut, color)) +geom_jitter(aes(color = cut), size = 0.5)
+```
+

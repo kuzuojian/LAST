@@ -1,0 +1,40 @@
+---
+title: "\U0001F44D\U0001F44D✨我们来画一画"
+author: 范琴
+date: '2019-05-21'
+slug: 我们来画一画
+categories:
+  - R
+tags:
+  - R Markdown
+---
+
+
+
+<pre class="r"><code>library(maps)
+library(mapdata)
+map(&quot;china&quot;, col = &quot;red4&quot;, ylim = c(18, 54), panel.first = grid())
+beijing = c(&#39;北京&amp;天津&#39;, 39.90419989999999, 116.4073963, 1961.24 + 1293.82)
+shanghai = c(&#39;上海&#39;, 31.2303904, 121.4737021, 2301.91)
+zhengzhou = c(&#39;郑州&#39;, 34.7472541716, 113.6249284647, 862.65)
+wulumuqi = c(&#39;乌鲁木齐&#39;, 43.8266013700, 87.6168405804, 311.03)
+haerbin = c(&#39;哈尔滨&#39;, 45.8021755616, 126.5358247345, 1063.6)
+xian = c(&#39;西安&#39;, 34.3412614674, 108.9398165260, 846.78)
+wuhan = c(&#39;武汉&#39;, 30.5927599029, 114.3052387810, 978.54)
+chengdu = c(&#39;成都&#39;, 30.5702183724, 104.0647735044, 1404.76)
+lasa = c(&#39;拉萨&#39;, 29.6441135160, 91.1144530801, 55.94)
+chongqing = c(&#39;重庆&#39;, 29.5647048135, 106.5507137149, 2884.62)
+kunming = c(&#39;昆明&#39;, 24.8796595146, 102.8332118852, 643.2)
+guangshen = c(&#39;广州&amp;深圳&#39;, 23.0206747828, 113.7517837567, 1270.08 + 1035.79)
+cities = c(beijing, shanghai, zhengzhou, wulumuqi, haerbin, xian, wuhan,chengdu, lasa, chongqing, kunming, guangshen)
+mat.cities = as.data.frame(matrix(cities, ncol = 4, byrow = T), stringsAsFactors = F)
+names(mat.cities) = c(&#39;names&#39;, &#39;lat&#39;, &#39;long&#39;, &#39;population&#39;)
+mat.cities$population = as.numeric(as.character(mat.cities$population)) / 100
+mat.cities$lat = as.numeric(as.character(mat.cities$lat))
+mat.cities$long = as.numeric(as.character(mat.cities$long))
+map(&quot;china&quot;, col = &quot;red4&quot;, ylim = c(18, 54), panel.first = grid())
+for (i in 1:12) {
+  points(mat.cities$long[i], mat.cities$lat[i], cex = 1.5, pch = 16)
+}
+title(&#39;Population&#39;)</code></pre>
+<p><img src="/post/2019-05-21-我们来画一画_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>

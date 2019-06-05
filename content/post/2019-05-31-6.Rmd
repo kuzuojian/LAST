@@ -1,0 +1,24 @@
+---
+title: ggplot2尝试——点点点快到我的图里来
+author: 范琴
+date: '2019-05-31'
+slug: ggplot2尝试——点点点快到我的图里来
+categories:
+  - R
+tags:
+  - R Markdown
+---
+```{r}
+library(ggplot2)
+p <- ggplot(cars, aes(x=speed, y=dist))+geom_point()
+p
+p+coord_cartesian(xlim =c (5, 20), ylim = c(0, 50))
+p+xlim(5, 20)+ylim(0, 50)
+p+expand_limits(x=c(5, 50), y=c(0, 150))
+p <- ggplot(cars, aes(x=speed, y=dist))+geom_point()
+p
+p+scale_x_continuous(trans = "log2")+scale_y_continuous(trans = "log2")
+require(scales)
+p+scale_y_continuous(trans=log2_trans(),breaks = trans_breaks("log2", function(x) 2^x),labels=trans_format("log2", math_format(2^.x)))
+p+scale_y_reverse()
+```

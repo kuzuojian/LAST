@@ -1,0 +1,50 @@
+---
+title: 只要资料查的多，我也可以
+author: 范琴
+date: '2019-05-22'
+slug: 只要资料查的多，我也可以
+categories:
+  - R
+tags:
+  - R Markdown
+---
+
+
+
+<pre class="r"><code>library(rvest)</code></pre>
+<pre><code>## 载入需要的程辑包：xml2</code></pre>
+<pre class="r"><code>read.url&lt;-function(category){
+  webs&lt;-read_html(category,encoding = &quot;gbk&quot;) 
+  urls&lt;-webs %&gt;% 
+html_nodes(&quot;div.con.shoplist&quot;) %&gt;%
+html_nodes(&quot;ul&quot;) %&gt;% 
+html_nodes(&quot;li&quot;) %&gt;% 
+html_nodes(&quot;a.pic&quot;) %&gt;% 
+html_attr(&quot;href&quot;)
+return(urls)
+}
+read.item&lt;-function(url){
+web&lt;-read_html(url,encoding = &quot;gbk&quot;)
+content&lt;-web%&gt;%
+html_nodes(&quot;div.main&quot;)%&gt;%
+html_nodes(&quot;div.mall_goods_foursort_style&quot;)%&gt;%
+html_nodes(&quot;div&quot;)%&gt;%
+html_text()
+brand&lt;-substr(content[2],4,nchar(content[3]))
+id&lt;-substr(content[3],4,nchar(content[3]))
+price&lt;-web%&gt;%
+html_nodes(&quot;div.sale&quot;)%&gt;%
+html_nodes(&quot;div&quot;)%&gt;%
+html_nodes(&quot;div&quot;)%&gt;%
+html_nodes(&quot;b.d_price&quot;)%&gt;%
+html_nodes(&quot;span&quot;)%&gt;%
+html_text()
+item&lt;-list(brand=brand,id=id,price=price)
+return(item)
+}
+category&lt;-c()
+for(i in 1:10){
+   category&lt;-c(category,paste(&quot;http://category.dangdang.com/pg&quot;,i,&quot;-cid4001075.html&quot;,sep = &quot;&quot;))
+}
+urls&lt;-unlist(lapply(category,read.url))
+data&lt;-t(sapply(urls,read.item,USE.NAMES = FALSE))</code></pre>

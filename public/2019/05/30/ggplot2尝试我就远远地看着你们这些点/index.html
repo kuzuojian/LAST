@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.55.5" />
+
+
+<title>ggplot2尝试——我就远远地看着你们这些点 - 一个卑微的爬狗🐶</title>
+<meta property="og:title" content="ggplot2尝试——我就远远地看着你们这些点 - 一个卑微的爬狗🐶">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="www.cnki.net/">CNKI</a></li>
+    
+    <li><a href="https://www.csdn.net/">csdn</a></li>
+    
+    <li><a href="https://app.netlify.com/teams/kuzuojian/sites">netlify</a></li>
+    
+    <li><a href="https://github.com/kuzuojian/last/blob/master/content/post/2019-05-22-%e7%94%bb_files/figure-html/unnamed-chunk-1-1.png">地图</a></li>
+    
+    <li><a href="http://www.people.com.cn/">看中国</a></li>
+    
+    <li><a href="https://github.com/kuzuojian?tab=repositories">看看</a></li>
+    
+    <li><a href="http://www.huanqiu.com/?agt=15438">知世界</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">3 min read</span>
+    
+
+    <h1 class="article-title">ggplot2尝试——我就远远地看着你们这些点</h1>
+
+    
+    <span class="article-date">2019-05-30</span>
+    
+
+    <div class="article-content">
+      
+
+
+<pre class="r"><code>library(ggplot2)
+data(mtcars)
+df &lt;- mtcars[, c(&quot;mpg&quot;, &quot;cyl&quot;, &quot;wt&quot;)]
+mtcars &lt;- data.frame(mpg=factor(rep(c(&quot;F&quot;, &quot;M&quot;), each=200)),wt=c(rnorm(200, 55), rnorm(200, 58)))
+b &lt;- ggplot(data = mtcars, aes(x=wt, y=mpg))
+b+geom_point()</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<pre class="r"><code>b+geom_smooth()</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-1-2.png" width="672" /></p>
+<pre class="r"><code>b+geom_point()+geom_smooth(method = &quot;lm&quot;, se=FALSE)</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-1-3.png" width="672" /></p>
+<pre class="r"><code>b+geom_point()+geom_smooth(method = &quot;loess&quot;)</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-1-4.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = mpg, aes(cty, hwy))+geom_point()+geom_quantile()+theme_minimal()</code></pre>
+<pre><code>## Warning: Computation failed in `stat_quantile()`:
+## Package `quantreg` required for `stat_quantile`.
+## Please install and try again.</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-1-5.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = faithful, aes(x=eruptions, y=waiting))+geom_point()+geom_rug()</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-1-6.png" width="672" /></p>
+<pre class="r"><code>p &lt;- ggplot(data = mpg, aes(displ, hwy))
+p+geom_point()</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-1-7.png" width="672" /></p>
+<pre class="r"><code>p+geom_jitter(width = 0.5, height = 0.5)</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-1-8.png" width="672" /></p>
+<pre class="r"><code>b+geom_text(aes(label=rownames(mtcars)))</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-1-9.png" width="672" /></p>
+<pre class="r"><code>library(ggplot2)
+head(diamonds[, c(&quot;carat&quot;, &quot;price&quot;)])</code></pre>
+<pre><code>## # A tibble: 6 x 2
+##   carat price
+##   &lt;dbl&gt; &lt;int&gt;
+## 1 0.23    326
+## 2 0.21    326
+## 3 0.23    327
+## 4 0.290   334
+## 5 0.31    335
+## 6 0.24    336</code></pre>
+<pre class="r"><code>c &lt;- ggplot(data=diamonds, aes(carat, price))
+c+geom_bin2d()</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code>c+geom_bin2d(bins=150)</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-2.png" width="672" /></p>
+<pre class="r"><code>library(hexbin)
+c+geom_hex()</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-3.png" width="672" /></p>
+<pre class="r"><code>c+geom_hex(bins=10)</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-4.png" width="672" /></p>
+<pre class="r"><code>sp &lt;- ggplot(faithful, aes(x=eruptions, y=waiting))
+sp+geom_point()+ geom_density_2d()</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-5.png" width="672" /></p>
+<pre class="r"><code>head(economics)</code></pre>
+<pre><code>## # A tibble: 6 x 6
+##   date         pce    pop psavert uempmed unemploy
+##   &lt;date&gt;     &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
+## 1 1967-07-01  507. 198712    12.6     4.5     2944
+## 2 1967-08-01  510. 198911    12.6     4.7     2945
+## 3 1967-09-01  516. 199113    11.9     4.6     2958
+## 4 1967-10-01  512. 199311    12.9     4.9     3143
+## 5 1967-11-01  517. 199498    12.8     4.7     3066
+## 6 1967-12-01  525. 199657    11.8     4.8     3018</code></pre>
+<pre class="r"><code>d &lt;- ggplot(data = economics, aes(x=date, y=unemploy))
+d+geom_area()</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-6.png" width="672" /></p>
+<pre class="r"><code>d+geom_line()</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-7.png" width="672" /></p>
+<pre class="r"><code>set.seed(1111)
+ss &lt;- economics[sample(1:nrow(economics), 20),]
+ggplot(ss, aes(x=date, y=unemploy))+geom_step()</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-8.png" width="672" /></p>
+<pre class="r"><code>ToothGrowth$dose &lt;- as.factor(ToothGrowth$dose)
+head(ToothGrowth)</code></pre>
+<pre><code>##    len supp dose
+## 1  4.2   VC  0.5
+## 2 11.5   VC  0.5
+## 3  7.3   VC  0.5
+## 4  5.8   VC  0.5
+## 5  6.4   VC  0.5
+## 6 10.0   VC  0.5</code></pre>
+<pre class="r"><code>e &lt;- ggplot(data = ToothGrowth, aes(x=dose, y=len))
+e+geom_boxplot()</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-9.png" width="672" /></p>
+<pre class="r"><code>e+geom_boxplot(notch = TRUE)</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-10.png" width="672" /></p>
+<pre class="r"><code>e+geom_boxplot(aes(color=dose))</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-11.png" width="672" /></p>
+<pre class="r"><code>e+geom_boxplot(aes(fill=dose))</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-12.png" width="672" /></p>
+<pre class="r"><code>ggplot(ToothGrowth, aes(x=dose, y=len))+ geom_boxplot(aes(fill=supp))</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-13.png" width="672" /></p>
+<pre class="r"><code>e+geom_violin(trim = FALSE)</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-14.png" width="672" /></p>
+<pre class="r"><code>e+geom_violin(trim = FALSE)+stat_summary(fun.data = mean_sdl, fun.args = list(mult=1), geom=&quot;pointrange&quot;, color=&quot;red&quot;)</code></pre>
+<pre><code>## Warning: Computation failed in `stat_summary()`:
+## Hmisc package required for this function</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-15.png" width="672" /></p>
+<pre class="r"><code>e+geom_violin(trim = FALSE)+geom_boxplot(width=0.2)</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-16.png" width="672" /></p>
+<pre class="r"><code>e+geom_violin(aes(color=dose), trim = FALSE)</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-17.png" width="672" /></p>
+<pre class="r"><code>e+geom_dotplot(binaxis = &quot;y&quot;, stackdir = &quot;center&quot;)</code></pre>
+<pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-18.png" width="672" /></p>
+<pre class="r"><code>e + geom_dotplot(binaxis = &quot;y&quot;,stackdir=&quot;center&quot;)+stat_summary(fun.data=mean_sdl, color = &quot;red&quot;,geom = &quot;pointrange&quot;,fun.args=list(mult=1))</code></pre>
+<pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<pre><code>## Warning: Computation failed in `stat_summary()`:
+## Hmisc package required for this function</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-19.png" width="672" /></p>
+<pre class="r"><code>e + geom_boxplot() + geom_dotplot(binaxis = &quot;y&quot;, stackdir = &quot;center&quot;) </code></pre>
+<pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-20.png" width="672" /></p>
+<pre class="r"><code>e + geom_violin(trim = FALSE) +geom_dotplot(binaxis=&#39;y&#39;, stackdir=&#39;center&#39;)</code></pre>
+<pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-21.png" width="672" /></p>
+<pre class="r"><code>e + geom_dotplot(aes(color = dose, fill = dose), binaxis = &quot;y&quot;, stackdir = &quot;center&quot;)</code></pre>
+<pre><code>## `stat_bindot()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="/post/2019-05-30-尝试_files/figure-html/unnamed-chunk-2-22.png" width="672" /></p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

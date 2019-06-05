@@ -1,0 +1,22 @@
+---
+title: "\U0001F449知网里的互联网"
+author: 范琴
+date: '2019-05-21'
+slug: 天啊！！！！😱知网里面竟然有这些！！！
+categories:
+  - R
+tags:
+  - R Markdown
+---
+```{r}
+library(rvest)
+library(knitr)
+link <- 'http://kns.cnki.net/kns/brief/result.aspx?dbprefix=SCDB&crossDbcodes=CJFQ,CDFD,CMFD,CPFD,IPFD,CCND,CCJD'
+web <- read_html(link)
+title <- web %>% html_nodes('div.rslt p.title a') %>%html_text()
+author <- web %>% html_nodes('div.supp p.desc') %>%html_text()
+journal <- web %>% html_nodes('div.supp p.details span') %>%html_text()
+dat <- data.frame(Title = title, Author = author, Journal = journal)
+kable(dat, format="html")
+
+```

@@ -1,0 +1,55 @@
+---
+title: 只要资料查的多，我也可以
+author: 范琴
+date: '2019-05-22'
+slug: 只要资料查的多，我也可以
+categories:
+  - R
+tags:
+  - R Markdown
+---
+```{r}
+library(rvest)
+read.url<-function(category){
+  webs<-read_html(category,encoding = "gbk") 
+  urls<-webs %>% 
+html_nodes("div.con.shoplist") %>%
+html_nodes("ul") %>% 
+html_nodes("li") %>% 
+html_nodes("a.pic") %>% 
+html_attr("href")
+return(urls)
+}
+read.item<-function(url){
+web<-read_html(url,encoding = "gbk")
+content<-web%>%
+html_nodes("div.main")%>%
+html_nodes("div.mall_goods_foursort_style")%>%
+html_nodes("div")%>%
+html_text()
+brand<-substr(content[2],4,nchar(content[3]))
+id<-substr(content[3],4,nchar(content[3]))
+price<-web%>%
+html_nodes("div.sale")%>%
+html_nodes("div")%>%
+html_nodes("div")%>%
+html_nodes("b.d_price")%>%
+html_nodes("span")%>%
+html_text()
+item<-list(brand=brand,id=id,price=price)
+return(item)
+}
+category<-c()
+for(i in 1:10){
+   category<-c(category,paste("http://category.dangdang.com/pg",i,"-cid4001075.html",sep = ""))
+}
+urls<-unlist(lapply(category,read.url))
+data<-t(sapply(urls,read.item,USE.NAMES = FALSE))
+
+
+
+
+
+
+
+```

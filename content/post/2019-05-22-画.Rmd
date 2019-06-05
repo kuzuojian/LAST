@@ -1,0 +1,19 @@
+---
+title: world  and  China
+author: 范琴
+date: '2019-05-22'
+slug: world  and  China
+categories:
+  - R
+tags:
+  - R Markdown
+---
+```{r}
+library(maps)
+map("world", fill = TRUE, col = rainbow(200),ylim = c(-60, 90), mar = c(0, 0, 0, 0))
+title("世界地图")
+library(maps)
+library(mapdata)
+map("china", col = "red4", ylim = c(18, 54), panel.first = grid())
+title(" 中国地图")
+```

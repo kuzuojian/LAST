@@ -1,0 +1,22 @@
+---
+title: 主题修炼手册
+author: 范范
+date: '2019-05-31'
+slug: 主题修炼手册
+categories:
+  - R
+tags:
+  - R Markdown
+---
+```{r}
+library(ggplot2)
+ToothGrowth$dose <- as.factor(ToothGrowth$dose)
+p <- ggplot(ToothGrowth, aes(x=dose, y=len))+geom_boxplot()
+p+theme_gray(base_size = 14)
+p+theme_bw()
+p + theme_linedraw()
+p + theme_light()
+p + theme_minimal()
+p + theme_classic()
+p+ggthemes::theme_economist()
+```

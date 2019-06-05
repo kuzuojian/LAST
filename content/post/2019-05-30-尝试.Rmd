@@ -1,0 +1,64 @@
+---
+title: ggplot2尝试——我就远远地看着你们这些点(～﹃～)~zZ
+author: 范琴
+date: '2019-05-30'
+slug: ggplot2尝试——我就远远地看着你们这些点(～﹃～)~zZ
+categories:
+  - R
+tags:
+  - R Markdown
+---
+```{r}
+library(ggplot2)
+data(mtcars)
+df <- mtcars[, c("mpg", "cyl", "wt")]
+mtcars <- data.frame(mpg=factor(rep(c("F", "M"), each=200)),wt=c(rnorm(200, 55), rnorm(200, 58)))
+b <- ggplot(data = mtcars, aes(x=wt, y=mpg))
+b+geom_point()
+b+geom_smooth()
+b+geom_point()+geom_smooth(method = "lm", se=FALSE)
+b+geom_point()+geom_smooth(method = "loess")
+ggplot(data = mpg, aes(cty, hwy))+geom_point()+geom_quantile()+theme_minimal()
+ggplot(data = faithful, aes(x=eruptions, y=waiting))+geom_point()+geom_rug()
+p <- ggplot(data = mpg, aes(displ, hwy))
+p+geom_point()
+p+geom_jitter(width = 0.5, height = 0.5)
+b+geom_text(aes(label=rownames(mtcars)))
+```
+```{r}
+library(ggplot2)
+head(diamonds[, c("carat", "price")])
+c <- ggplot(data=diamonds, aes(carat, price))
+c+geom_bin2d()
+c+geom_bin2d(bins=150)
+library(hexbin)
+c+geom_hex()
+c+geom_hex(bins=10)
+sp <- ggplot(faithful, aes(x=eruptions, y=waiting))
+sp+geom_point()+ geom_density_2d()
+head(economics)
+d <- ggplot(data = economics, aes(x=date, y=unemploy))
+d+geom_area()
+d+geom_line()
+set.seed(1111)
+ss <- economics[sample(1:nrow(economics), 20),]
+ggplot(ss, aes(x=date, y=unemploy))+geom_step()
+ToothGrowth$dose <- as.factor(ToothGrowth$dose)
+head(ToothGrowth)
+e <- ggplot(data = ToothGrowth, aes(x=dose, y=len))
+e+geom_boxplot()
+e+geom_boxplot(notch = TRUE)
+e+geom_boxplot(aes(color=dose))
+e+geom_boxplot(aes(fill=dose))
+ggplot(ToothGrowth, aes(x=dose, y=len))+ geom_boxplot(aes(fill=supp))
+e+geom_violin(trim = FALSE)
+e+geom_violin(trim = FALSE)+stat_summary(fun.data = mean_sdl, fun.args = list(mult=1), geom="pointrange", color="red")
+e+geom_violin(trim = FALSE)+geom_boxplot(width=0.2)
+e+geom_violin(aes(color=dose), trim = FALSE)
+e+geom_dotplot(binaxis = "y", stackdir = "center")
+e + geom_dotplot(binaxis = "y",stackdir="center")+stat_summary(fun.data=mean_sdl, color = "red",geom = "pointrange",fun.args=list(mult=1))
+e + geom_boxplot() + geom_dotplot(binaxis = "y", stackdir = "center") 
+e + geom_violin(trim = FALSE) +geom_dotplot(binaxis='y', stackdir='center')
+e + geom_dotplot(aes(color = dose, fill = dose), binaxis = "y", stackdir = "center")
+```
+
