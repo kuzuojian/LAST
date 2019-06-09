@@ -6,10 +6,37 @@
     <description>Recent content in R Markdown on 一个卑微的爬狗🐶</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Jun 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Jun 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/tags/r-markdown/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>fan函数——我自己的函数</title>
+      <link>/2019/06/09/fan%E5%87%BD%E6%95%B0-%E6%88%91%E8%87%AA%E5%B7%B1%E7%9A%84%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Sun, 09 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/09/fan%E5%87%BD%E6%95%B0-%E6%88%91%E8%87%AA%E5%B7%B1%E7%9A%84%E5%87%BD%E6%95%B0/</guid>
+      <description>fan &amp;lt;-function(x,y){x+y}fan&amp;lt;-function(x,y){+ x+y}fan(6,3)## [1] 9fan &amp;lt;-function(R){use &amp;lt;- R&amp;gt;5R[use]}fan &amp;lt;-function(R){use &amp;lt;- R&amp;gt;80+ R[use]}R &amp;lt;-1:100fan(R)## [1] 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97## [18] 98 99 100fan(R)## [1] 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97## [18] 98 99 100integer(0)## integer(0)fan&amp;lt;-function(F,Q){data&amp;lt;-read.</description>
+    </item>
+    
+    <item>
+      <title>DiagrammeR练习——啊啊啊😱😱😱端午节！！！我还在做R，这是真爱！！！！！！</title>
+      <link>/2019/06/07/diagrammer%E7%BB%83%E4%B9%A0-%E5%95%8A%E5%95%8A%E5%95%8A-%E7%AB%AF%E5%8D%88%E8%8A%82-%E6%88%91%E8%BF%98%E5%9C%A8%E5%81%9Ar-%E8%BF%99%E6%98%AF%E7%9C%9F%E7%88%B1/</link>
+      <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/07/diagrammer%E7%BB%83%E4%B9%A0-%E5%95%8A%E5%95%8A%E5%95%8A-%E7%AB%AF%E5%8D%88%E8%8A%82-%E6%88%91%E8%BF%98%E5%9C%A8%E5%81%9Ar-%E8%BF%99%E6%98%AF%E7%9C%9F%E7%88%B1/</guid>
+      <description>DiagrammeR::grViz(&amp;quot;digraph RmarkDown {graph [rankdir = LR]node [shape=rectanglestyle=filledcolor=pinkfillcolor=bluefontcolor=black` arrowcolor=green`e alpha=55fontname = &amp;#39;楷体&amp;#39;]edge [color = grey]&amp;#39;道&amp;#39; -&amp;gt; &amp;#39;一&amp;#39;&amp;#39;一&amp;#39; -&amp;gt; &amp;#39;二&amp;#39;&amp;#39;二&amp;#39; -&amp;gt; &amp;#39;三&amp;#39;&amp;#39;三&amp;#39; -&amp;gt; &amp;#39;万物&amp;#39;}&amp;quot;, width=600){&#34;x&#34;:{&#34;diagram&#34;:&#34;\ndigraph RmarkDown {\ngraph [rankdir = LR]\nnode [shape=rectangle\n style=filled\n color=pink\n fillcolor=blue\n fontcolor=black\n` arrowcolor=green\n`e alpha=55\n fontname = \&#34;楷体\&#34;]\nedge [color = grey]\n\&#34;道\&#34; - \&#34;一\&#34;\n\&#34;一\&#34; - \&#34;二\&#34;\n\&#34;二\&#34; - \&#34;三\&#34;\n\&#34;三\&#34; - \&#34;</description>
+    </item>
+    
+    <item>
+      <title>手账周边——你拍一我拍一流程图儿快现身</title>
+      <link>/2019/06/07/%E6%89%8B%E8%B4%A6%E5%91%A8%E8%BE%B9-%E4%BD%A0%E6%8B%8D%E4%B8%80%E6%88%91%E6%8B%8D%E4%B8%80%E6%B5%81%E7%A8%8B%E5%9B%BE%E5%84%BF%E5%BF%AB%E7%8E%B0%E8%BA%AB/</link>
+      <pubDate>Fri, 07 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/06/07/%E6%89%8B%E8%B4%A6%E5%91%A8%E8%BE%B9-%E4%BD%A0%E6%8B%8D%E4%B8%80%E6%88%91%E6%8B%8D%E4%B8%80%E6%B5%81%E7%A8%8B%E5%9B%BE%E5%84%BF%E5%BF%AB%E7%8E%B0%E8%BA%AB/</guid>
+      <description>library(DiagrammeR)grViz(&amp;quot;digraph a(a &amp;gt;-b)&amp;quot;){&#34;x&#34;:{&#34;diagram&#34;:&#34;digraph a(a -b)&#34;,&#34;config&#34;:{&#34;engine&#34;:&#34;dot&#34;,&#34;options&#34;:null}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}library(DiagrammeR)xy &amp;lt;-1:34xy## [1] 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23## [24] 24 25 26 27 28 29 30 31 32 33 34grViz(&amp;quot;digraph fig(scu[lable=&amp;#39;四川大学&amp;#39;,shape=box]&amp;quot;){&#34;x&#34;:{&#34;diagram&#34;:&#34;digraph fig(scu[lable=\&#34;四川大学\&#34;,shape=box]&#34;,&#34;config&#34;:{&#34;engine&#34;:&#34;dot&#34;,&#34;options&#34;:null}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}library(DiagrammeR)grViz(&amp;quot;digraph boxes_and_circles {# a &amp;#39;graph&amp;#39; statementgraph [overlap = true, fontsize = 10]# several &amp;#39;node&amp;#39; statementsnode [shape = box,fontname = Helvetica]A; B; C; D; E; Fnode [shape = circle,fixedsize = true,width = 0.</description>
+    </item>
     
     <item>
       <title>课堂练习</title>

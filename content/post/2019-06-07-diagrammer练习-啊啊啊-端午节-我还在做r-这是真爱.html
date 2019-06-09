@@ -1,0 +1,43 @@
+---
+title: "DiagrammeR练习——啊啊啊\U0001F631\U0001F631\U0001F631端午节！！！我还在做R，这是真爱！！！！！！"
+author: 范琴
+date: '2019-06-07'
+slug: diagrammer练习-啊啊啊-端午节-我还在做r-这是真爱
+categories:
+  - R
+tags:
+  - R Markdown
+---
+
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/viz/viz.js"></script>
+<link href="/rmarkdown-libs/DiagrammeR-styles/styles.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/grViz-binding/grViz.js"></script>
+
+
+<pre class="r"><code>DiagrammeR::grViz(&quot;
+digraph RmarkDown {
+graph [rankdir = LR]
+node [shape=rectangle
+  style=filled
+  color=pink
+  fillcolor=blue
+  fontcolor=black
+`  arrowcolor=green
+`e  alpha=55
+  fontname = &#39;楷体&#39;]
+edge [color = grey]
+&#39;道&#39; -&gt; &#39;一&#39;
+&#39;一&#39; -&gt; &#39;二&#39;
+&#39;二&#39; -&gt; &#39;三&#39;
+&#39;三&#39; -&gt; &#39;万物&#39;
+    }
+    &quot;, width=600)</code></pre>
+<div id="htmlwidget-1" style="width:600px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"diagram":"\ndigraph RmarkDown {\ngraph [rankdir = LR]\nnode [shape=rectangle\n  style=filled\n  color=pink\n  fillcolor=blue\n  fontcolor=black\n`  arrowcolor=green\n`e  alpha=55\n  fontname = \"楷体\"]\nedge [color = grey]\n\"道\" -> \"一\"\n\"一\" -> \"二\"\n\"二\" -> \"三\"\n\"三\" -> \"万物\"\n    }\n    ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>library(DiagrammeR)
+grViz(&quot;
+A -&gt; {B C},subgraph {rank = same; A; B; C;},ABC [fontcolor =blue],ABC -&gt; def [arrowhead = diamond]&quot;
+)</code></pre>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"diagram":"\nA -> {B C},subgraph {rank = same; A; B; C;},ABC [fontcolor =blue],ABC -> def [arrowhead = diamond]","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>

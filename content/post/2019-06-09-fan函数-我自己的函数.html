@@ -1,0 +1,128 @@
+---
+title: fan函数——我自己的函数
+author: 范琴
+date: '2019-06-09'
+slug: fan函数-我自己的函数
+categories:
+  - R
+tags:
+  - R Markdown
+---
+
+
+
+<pre class="r"><code>fan &lt;-function(x,y){
+  x+y
+}
+fan&lt;-function(x,y){+ 
+x+y
+}
+fan(6,3)</code></pre>
+<pre><code>## [1] 9</code></pre>
+<pre class="r"><code>fan &lt;-function(R){
+  use &lt;-  R&gt;5
+  R[use]
+}
+fan   &lt;-function(R){
+  use &lt;-  R&gt;80
++  R[use]
+  }
+R &lt;-1:100
+fan(R)</code></pre>
+<pre><code>##  [1]  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97
+## [18]  98  99 100</code></pre>
+<pre class="r"><code>fan(R)</code></pre>
+<pre><code>##  [1]  81  82  83  84  85  86  87  88  89  90  91  92  93  94  95  96  97
+## [18]  98  99 100</code></pre>
+<pre class="r"><code>integer(0)</code></pre>
+<pre><code>## integer(0)</code></pre>
+<pre class="r"><code>fan&lt;-function(F,Q){
+data&lt;-read.table(Q)
+plot(data&amp;x,data&amp;y,type=&quot;1&quot;)
+title(&quot;fan&quot;)
+}
+layout(matrix(1:3,3,1))
+names&lt;-c(&quot;title1&quot;,&quot;title2&quot;,&quot;title3&quot;)
+file&lt;-c(&quot;data1.dat&quot;,&quot;data2.dat&quot;,&quot;data1.dat&quot;)</code></pre>
+<pre class="r"><code>test.sum &lt;- function(x){
+  res &lt;- 0
+  for(i in 1:length(x)){
+    res &lt;- res + x[i]
+  }
+  return(res)
+}
+a &lt;- c(1,2,1,6,1,8,9,8)
+test.sum(a)</code></pre>
+<pre><code>## [1] 36</code></pre>
+<pre class="r"><code>sum(a)</code></pre>
+<pre><code>## [1] 36</code></pre>
+<pre class="r"><code>fan&lt;- function(x,y){
+  plot(x,y,) 
+  return(x*y)}
+  x &lt;- rnorm(20)
+  y &lt;- rnorm(20,19,20)
+  fan(x,y)</code></pre>
+<p><img src="/post/2019-06-09-fan函数-我自己的函数_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre><code>##  [1]    6.95698363  -14.55471194  -50.29913984    0.45241714   -1.96259784
+##  [6]   -1.37537659  -14.31963425    5.68716367 -132.21433479   40.63431506
+## [11]    2.28242117    0.02959798   51.78212467   31.01901922   -7.82676065
+## [16]  -21.92000311   20.58198382   -3.40036023   22.71238086   -5.85586233</code></pre>
+<pre class="r"><code>fun.test &lt;- function(a, b, method=c(&quot;add&quot;, &quot;subtract&quot;)){
+  if(method == &quot;add&quot;){
+    res &lt;- a + b
+  }
+  if(method == &quot;substract&quot;){
+    res &lt;- a - b
+  }
+  return(res)
+}
+
+##检验结果
+fun.test(a = 10, b = 8, method = &quot;add&quot;)</code></pre>
+<pre><code>## [1] 18</code></pre>
+<pre class="r"><code>fun.test(a = 10, b = 8, method = &quot;substract&quot;)</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code>fan &lt;- function(x,npar=TRUE,print=TRUE) {
+  if (!npar) {
+    center &lt;- mean(x); spread &lt;- sd(x) 
+  } else {
+    center &lt;- median(x); spread &lt;- mad(x) 
+  }
+  if (print &amp; !npar) {
+    cat(&quot;Mean=&quot;, center, &quot;\n&quot;, &quot;SD=&quot;, spread, &quot;\n&quot;)
+  } else if (print &amp; npar) {
+    cat(&quot;Median=&quot;, center, &quot;\n&quot;, &quot;MAD=&quot;, spread, &quot;\n&quot;)
+  }
+  result &lt;- list(center=center,spread=spread)
+  return(result)
+}
+
+
+x&lt;-rnorm(10,0,1)
+fan(x)</code></pre>
+<pre><code>## Median= 0.2657639 
+##  MAD= 0.6313016</code></pre>
+<pre><code>## $center
+## [1] 0.2657639
+## 
+## $spread
+## [1] 0.6313016</code></pre>
+<pre class="r"><code>Median= 0.2469624 
+ MAD= 1.161068 </code></pre>
+<pre class="r"><code>fan&lt;-function(n)
+{
+result&lt;-1
+for(i in 1:3) result&lt;-result*i
+return(result)
+return(object)
+}</code></pre>
+<pre class="r"><code>roll3&lt;-function(x=1:6){
+  dice&lt;-sample(x,2,replace = T)#可重复抽样
+  sum(dice)
+}
+ roll3()</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="r"><code> roll2&lt;-function(x){
+  dice&lt;-sample(x,2,replace = T)#可重复抽样
+  sum(dice)
+}</code></pre>

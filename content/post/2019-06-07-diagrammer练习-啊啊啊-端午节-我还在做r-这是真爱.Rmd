@@ -1,0 +1,37 @@
+---
+title: "DiagrammeR练习——啊啊啊\U0001F631\U0001F631\U0001F631端午节！！！我还在做R，这是真爱！！！！！！"
+author: 范琴
+date: '2019-06-07'
+slug: diagrammer练习-啊啊啊-端午节-我还在做r-这是真爱
+categories:
+  - R
+tags:
+  - R Markdown
+---
+```{r}
+DiagrammeR::grViz("
+digraph RmarkDown {
+graph [rankdir = LR]
+node [shape=rectangle
+  style=filled
+  color=pink
+  fillcolor=blue
+  fontcolor=black
+`  arrowcolor=green
+`e  alpha=55
+  fontname = '楷体']
+edge [color = grey]
+'道' -> '一'
+'一' -> '二'
+'二' -> '三'
+'三' -> '万物'
+    }
+    ", width=600)
+```
+```{r}
+library(DiagrammeR)
+grViz("
+A -> {B C},subgraph {rank = same; A; B; C;},ABC [fontcolor =blue],ABC -> def [arrowhead = diamond]"
+)
+```
+

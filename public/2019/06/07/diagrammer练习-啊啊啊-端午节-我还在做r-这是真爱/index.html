@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.55.5" />
+
+
+<title>DiagrammeR练习——啊啊啊😱😱😱端午节！！！我还在做R，这是真爱！！！！！！ - 一个卑微的爬狗🐶</title>
+<meta property="og:title" content="DiagrammeR练习——啊啊啊😱😱😱端午节！！！我还在做R，这是真爱！！！！！！ - 一个卑微的爬狗🐶">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="www.cnki.net/">CNKI</a></li>
+    
+    <li><a href="https://www.csdn.net/">csdn</a></li>
+    
+    <li><a href="https://app.netlify.com/teams/kuzuojian/sites">netlify</a></li>
+    
+    <li><a href="https://github.com/kuzuojian/last/blob/master/content/post/2019-05-22-%e7%94%bb_files/figure-html/unnamed-chunk-1-1.png">地图</a></li>
+    
+    <li><a href="http://www.people.com.cn/">看中国</a></li>
+    
+    <li><a href="https://github.com/kuzuojian?tab=repositories">看看</a></li>
+    
+    <li><a href="http://www.huanqiu.com/?agt=15438">知世界</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">1 min read</span>
+    
+
+    <h1 class="article-title">DiagrammeR练习——啊啊啊😱😱😱端午节！！！我还在做R，这是真爱！！！！！！</h1>
+
+    
+    <span class="article-date">2019-06-07</span>
+    
+
+    <div class="article-content">
+      
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/viz/viz.js"></script>
+<link href="/rmarkdown-libs/DiagrammeR-styles/styles.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/grViz-binding/grViz.js"></script>
+
+
+<pre class="r"><code>DiagrammeR::grViz(&quot;
+digraph RmarkDown {
+graph [rankdir = LR]
+node [shape=rectangle
+  style=filled
+  color=pink
+  fillcolor=blue
+  fontcolor=black
+`  arrowcolor=green
+`e  alpha=55
+  fontname = &#39;楷体&#39;]
+edge [color = grey]
+&#39;道&#39; -&gt; &#39;一&#39;
+&#39;一&#39; -&gt; &#39;二&#39;
+&#39;二&#39; -&gt; &#39;三&#39;
+&#39;三&#39; -&gt; &#39;万物&#39;
+    }
+    &quot;, width=600)</code></pre>
+<div id="htmlwidget-1" style="width:600px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"diagram":"\ndigraph RmarkDown {\ngraph [rankdir = LR]\nnode [shape=rectangle\n  style=filled\n  color=pink\n  fillcolor=blue\n  fontcolor=black\n`  arrowcolor=green\n`e  alpha=55\n  fontname = \"楷体\"]\nedge [color = grey]\n\"道\" -> \"一\"\n\"一\" -> \"二\"\n\"二\" -> \"三\"\n\"三\" -> \"万物\"\n    }\n    ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<pre class="r"><code>library(DiagrammeR)
+grViz(&quot;
+A -&gt; {B C},subgraph {rank = same; A; B; C;},ABC [fontcolor =blue],ABC -&gt; def [arrowhead = diamond]&quot;
+)</code></pre>
+<div id="htmlwidget-2" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"diagram":"\nA -> {B C},subgraph {rank = same; A; B; C;},ABC [fontcolor =blue],ABC -> def [arrowhead = diamond]","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

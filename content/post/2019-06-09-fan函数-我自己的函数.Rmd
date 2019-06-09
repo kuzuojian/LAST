@@ -1,0 +1,150 @@
+---
+title: fan函数——我自己的函数
+author: 范琴
+date: '2019-06-09'
+slug: fan函数-我自己的函数
+categories:
+  - R
+tags:
+  - R Markdown
+---
+```{r}
+fan <-function(x,y){
+  x+y
+}
+fan<-function(x,y){+ 
+x+y
+}
+fan(6,3)
+```
+```{r}
+fan <-function(R){
+  use <-  R>5
+  R[use]
+}
+fan   <-function(R){
+  use <-  R>80
++  R[use]
+  }
+R <-1:100
+fan(R)
+fan(R)
+integer(0)
+```
+
+
+```{r}
+fan<-function(F,Q){
+data<-read.table(Q)
+plot(data&x,data&y,type="1")
+title("fan")
+}
+layout(matrix(1:3,3,1))
+names<-c("title1","title2","title3")
+file<-c("data1.dat","data2.dat","data1.dat")
+
+```
+```{r}
+test.sum <- function(x){
+  res <- 0
+  for(i in 1:length(x)){
+    res <- res + x[i]
+  }
+  return(res)
+}
+a <- c(1,2,1,6,1,8,9,8)
+test.sum(a)
+sum(a)
+```
+
+
+
+
+
+
+
+
+```{r}
+fan<- function(x,y){
+  plot(x,y,) 
+  return(x*y)}
+  x <- rnorm(20)
+  y <- rnorm(20,19,20)
+  fan(x,y)
+
+
+
+```
+```{r}
+fun.test <- function(a, b, method=c("add", "subtract")){
+  if(method == "add"){
+    res <- a + b
+  }
+  if(method == "substract"){
+    res <- a - b
+  }
+  return(res)
+}
+
+##检验结果
+fun.test(a = 10, b = 8, method = "add")
+fun.test(a = 10, b = 8, method = "substract")
+```
+
+
+
+
+
+
+
+
+
+```{r}
+fan <- function(x,npar=TRUE,print=TRUE) {
+  if (!npar) {
+    center <- mean(x); spread <- sd(x) 
+  } else {
+    center <- median(x); spread <- mad(x) 
+  }
+  if (print & !npar) {
+    cat("Mean=", center, "\n", "SD=", spread, "\n")
+  } else if (print & npar) {
+    cat("Median=", center, "\n", "MAD=", spread, "\n")
+  }
+  result <- list(center=center,spread=spread)
+  return(result)
+}
+
+
+x<-rnorm(10,0,1)
+fan(x)
+Median= 0.2469624 
+ MAD= 1.161068 
+
+```
+
+```{r}
+fan<-function(n)
+{
+result<-1
+for(i in 1:3) result<-result*i
+return(result)
+return(object)
+}
+```
+```{r}
+roll3<-function(x=1:6){
+  dice<-sample(x,2,replace = T)#可重复抽样
+  sum(dice)
+}
+ roll3()
+ roll2<-function(x){
+  dice<-sample(x,2,replace = T)#可重复抽样
+  sum(dice)
+}
+
+ 
+ 
+```
+
+
