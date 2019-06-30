@@ -4,32 +4,43 @@
   
   <url>
     <loc>/categories/</loc>
-    <lastmod>2019-06-09T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/post/</loc>
-    <lastmod>2019-06-09T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/r/</loc>
-    <lastmod>2019-06-09T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/r-markdown/</loc>
-    <lastmod>2019-06-09T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2019-06-09T00:00:00+00:00</lastmod>
+    <lastmod>2019-06-12T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2019-06-12T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/2019/06/12/%E8%AF%BE%E5%A0%82/</loc>
+    <lastmod>2019-06-12T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -38,13 +49,17 @@
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2019-06-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
+    <loc>/2019/06/07/diagrammer%E7%BB%83%E4%B9%A0-%E5%95%8A%E5%95%8A%E5%95%8A-%E7%AB%AF%E5%8D%88%E8%8A%82-%E6%88%91%E8%BF%98%E5%9C%A8%E5%81%9Ar-%E8%BF%99%E6%98%AF%E7%9C%9F%E7%88%B1/</loc>
+    <lastmod>2019-06-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/2019/06/07/diagrammer%E7%BB%83%E4%B9%A0-%E5%95%8A%E5%95%8A%E5%95%8A-%E7%AB%AF%E5%8D%88%E8%8A%82-%E6%88%91%E8%BF%98%E5%9C%A8%E5%81%9Ar-%E8%BF%99%E6%98%AF%E7%9C%9F%E7%88%B1/</loc>
+    <loc>/2019/06/07/%E6%89%8B%E8%B4%A6%E5%91%A8%E8%BE%B9-%E4%BD%A0%E6%8B%8D%E4%B8%80%E6%88%91%E6%8B%8D%E4%B8%80%E6%B5%81%E7%A8%8B%E5%9B%BE%E5%84%BF%E5%BF%AB%E7%8E%B0%E8%BA%AB/</loc>
+    <lastmod>2019-06-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/2019/06/07/%E6%89%8B%E8%B4%A6%E5%91%A8%E8%BE%B9-%E4%BD%A0%E6%8B%8D%E4%B8%80%E6%88%91%E6%8B%8D%E4%B8%80%E6%B5%81%E7%A8%8B%E5%9B%BE%E5%84%BF%E5%BF%AB%E7%8E%B0%E8%BA%AB/</loc>
     <lastmod>2019-06-07T00:00:00+00:00</lastmod>
   </url>
   
